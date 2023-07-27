@@ -1,0 +1,27 @@
+<!-- jobpost_form.html -->
+
+{% extends 'jobs/_base.html' %}
+{% load tailwind_filters %}
+
+{% block content %}
+  <h1>Create Job Post</h1>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div>
+      <label for="id_title">Title:</label>
+      <input type="text" name="title" id="id_title">
+    </div>
+    <div>
+      <label for="id_description">Description:</label>
+      <textarea name="description" id="id_description" rows="5"></textarea>
+    </div>
+    <div>
+      <label for="id_skills_required">Skills Required:</label>
+      <input type="text" name="skills_required" id="id_skills_required">
+    </div>
+    <div>
+      <input type="hidden" name="created_at" value="{{ created_at }}">
+    </div>
+    <button type="submit">Create Job Post</button>
+  </form>
+{% endblock %}

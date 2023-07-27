@@ -1,0 +1,17 @@
+{% extends 'jobs/_base.html' %}
+
+{% block content %}
+  <h1>Job Post Detail</h1>
+  {% for jobpost in jobposts %}
+  <a href="{% url 'jobpost-detail'%}">
+    <div class="jobpost">
+      <h2>{{ jobpost.title }}</h2>
+      <p>{{ jobpost.description }}</p>
+      <p>Skills Required: {{ jobpost.skills_required }}</p>
+      <p>Posted on: {{ jobpost.created_at }}</p>
+    </div>
+    <hr>
+  {% empty %}
+    <p>No job posts available.</p>
+  {% endfor %}
+{% endblock %}
